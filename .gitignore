@@ -1,0 +1,21 @@
+node_modules
+imgccpy/node_modules
+imgccpy/.pnp
+imgccpy/.pnp.js
+
+# testing
+imgccpy/coverage
+
+# production
+/build
+
+# misc
+imgccpy/.DS_Store
+imgccpy/.env.local
+imgccpy/.env.development.local
+imgccpy/.env.test.local
+imgccpy/.env.production.local
+
+imgccpy/npm-debug.log*
+imgccpy/yarn-debug.log*
+imgccpy/yarn-error.log*
