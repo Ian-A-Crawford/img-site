@@ -26,14 +26,33 @@ async function upload(file, name) {
   };
   s3.putObject(params, function (err, data) {
     if (err) console.log(err, err.stack); // an error occurred
-    else console.log(data); // successful response
-    /*
-    data = {
-     ETag: "\"6805f2cfc46c0f04559748bb039d69ae\"", 
-     VersionId: "Bvq0EDKxOcXLJXNo_Lkz37eM3R4pfzyQ"
-    }
-    */
+    // else console.log(data); // successful response
   });
 }
 
+
+function getImg() {
+  return new Promise((resolve, reject) => {
+    var params = {
+      Bucket: 'fucketbuckets',
+    };
+    s3.listObjectsV2(params, function(err, data) {
+      if (err) {
+        console.log(err, err.stack);
+        reject(err);
+      }
+      else {
+        resolve(data);
+        //stuff = data;
+        //console.log(data); 
+      }          
+    });
+  })
+}
+
+// getText()
+//   .then((data) => console.log("Data: ", data.Contents))
+//   .catch((error) => console.log(error));
+
 module.exports.upl = upload;
+module.exports.getImg = getImg;
